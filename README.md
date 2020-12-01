@@ -94,48 +94,13 @@ test_org.get_org_file_ext_frequency(pub_status='public')
 Snapshot stats are captured based on the current view and aren't updated. These include forks and clones
 
 ```python
-test_org.snapshot_stats
+test_org.snapshot_stats.to_dict()
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>stars</th>
-      <th>forks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>repo1</th>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>repo2</th>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+    {'stars': {'repo1': 1, 'repo2': 0}, 'forks': {'repo1': 0, 'repo2': 0}}
 
 
 
@@ -152,64 +117,21 @@ test_org.get_org_views_traffic(save_dir='readme_dir')
 If you want to load a DataFrame of traffic you can pass `load=True`
 
 ```python
-test_org.get_org_views_traffic(save_dir='readme_dir', load=True).to_markdown()
+test_org.get_org_views_traffic(save_dir='readme_dir', load=True).to_dict()
 ```
 
 
 
 
-    "|                     |   ('repo1', 'total_views') |   ('repo1', 'unique_views') |   ('repo2', 'total_views') |   ('repo2', 'unique_views') |\n|:--------------------|---------------------------:|----------------------------:|---------------------------:|----------------------------:|\n| 2020-11-30 00:00:00 |                          2 |                           1 |                          8 |                           1 |\n| 2020-12-01 00:00:00 |                          1 |                           1 |                        nan |                         nan |"
+    {('repo1', 'total_views'): {Timestamp('2020-11-30 00:00:00'): 2,
+      Timestamp('2020-12-01 00:00:00'): 1},
+     ('repo1', 'unique_views'): {Timestamp('2020-11-30 00:00:00'): 1,
+      Timestamp('2020-12-01 00:00:00'): 1},
+     ('repo2', 'total_views'): {Timestamp('2020-11-30 00:00:00'): 8.0,
+      Timestamp('2020-12-01 00:00:00'): nan},
+     ('repo2', 'unique_views'): {Timestamp('2020-11-30 00:00:00'): 1.0,
+      Timestamp('2020-12-01 00:00:00'): nan}}
 
 
 
 Similarly the same can be done for clones
-
-```python
-test_org.get_org_clones_traffic(save_dir='readme_dir', load=True)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="2" halign="left">repo1</th>
-      <th colspan="2" halign="left">repo2</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>total_clones</th>
-      <th>unique_clones</th>
-      <th>total_clones</th>
-      <th>unique_clones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2020-11-30</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>3</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-

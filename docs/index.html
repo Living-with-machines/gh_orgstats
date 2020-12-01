@@ -312,7 +312,7 @@ nb_path: "nbs/index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_org</span><span class="o">.</span><span class="n">snapshot_stats</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_org</span><span class="o">.</span><span class="n">snapshot_stats</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -325,43 +325,9 @@ nb_path: "nbs/index.ipynb"
 <div class="output_area">
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>stars</th>
-      <th>forks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>repo1</th>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>repo2</th>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;stars&#39;: {&#39;repo1&#39;: 1, &#39;repo2&#39;: 0}, &#39;forks&#39;: {&#39;repo1&#39;: 0, &#39;repo2&#39;: 0}}</pre>
 </div>
 
 </div>
@@ -411,7 +377,7 @@ nb_path: "nbs/index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_org</span><span class="o">.</span><span class="n">get_org_views_traffic</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;readme_dir&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_org</span><span class="o">.</span><span class="n">get_org_views_traffic</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;readme_dir&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -426,7 +392,14 @@ nb_path: "nbs/index.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#34;|                     |   (&#39;repo1&#39;, &#39;total_views&#39;) |   (&#39;repo1&#39;, &#39;unique_views&#39;) |   (&#39;repo2&#39;, &#39;total_views&#39;) |   (&#39;repo2&#39;, &#39;unique_views&#39;) |\n|:--------------------|---------------------------:|----------------------------:|---------------------------:|----------------------------:|\n| 2020-11-30 00:00:00 |                          2 |                           1 |                          8 |                           1 |\n| 2020-12-01 00:00:00 |                          1 |                           1 |                        nan |                         nan |&#34;</pre>
+<pre>{(&#39;repo1&#39;, &#39;total_views&#39;): {Timestamp(&#39;2020-11-30 00:00:00&#39;): 2,
+  Timestamp(&#39;2020-12-01 00:00:00&#39;): 1},
+ (&#39;repo1&#39;, &#39;unique_views&#39;): {Timestamp(&#39;2020-11-30 00:00:00&#39;): 1,
+  Timestamp(&#39;2020-12-01 00:00:00&#39;): 1},
+ (&#39;repo2&#39;, &#39;total_views&#39;): {Timestamp(&#39;2020-11-30 00:00:00&#39;): 8.0,
+  Timestamp(&#39;2020-12-01 00:00:00&#39;): nan},
+ (&#39;repo2&#39;, &#39;unique_views&#39;): {Timestamp(&#39;2020-11-30 00:00:00&#39;): 1.0,
+  Timestamp(&#39;2020-12-01 00:00:00&#39;): nan}}</pre>
 </div>
 
 </div>
@@ -444,77 +417,6 @@ nb_path: "nbs/index.ipynb"
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_org</span><span class="o">.</span><span class="n">get_org_clones_traffic</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;readme_dir&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="2" halign="left">repo1</th>
-      <th colspan="2" halign="left">repo2</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>total_clones</th>
-      <th>unique_clones</th>
-      <th>total_clones</th>
-      <th>unique_clones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2020-11-30</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>3</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 </div>
  
 
