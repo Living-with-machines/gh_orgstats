@@ -148,59 +148,13 @@ test_org.get_org_views_traffic(save_dir='readme_dir')
 If you want to load a DataFrame of traffic you can pass `load=True`
 
 ```python
-test_org.get_org_views_traffic(save_dir='readme_dir', load=True)
+test_org.get_org_views_traffic(save_dir='readme_dir', load=True).to_markdown()
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="2" halign="left">repo1</th>
-      <th colspan="2" halign="left">repo2</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>total_views</th>
-      <th>unique_views</th>
-      <th>total_views</th>
-      <th>unique_views</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2020-11-30</th>
-      <td>2</td>
-      <td>1</td>
-      <td>8.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2020-12-01</th>
-      <td>1</td>
-      <td>1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+    "|                     |   ('repo1', 'total_views') |   ('repo1', 'unique_views') |   ('repo2', 'total_views') |   ('repo2', 'unique_views') |\n|:--------------------|---------------------------:|----------------------------:|---------------------------:|----------------------------:|\n| 2020-11-30 00:00:00 |                          2 |                           1 |                          8 |                           1 |\n| 2020-12-01 00:00:00 |                          1 |                           1 |                        nan |                         nan |"
 
 
 
