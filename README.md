@@ -2,9 +2,7 @@
 
 
 
-```python
 ![CI](https://github.com/Living-with-machines/gh_orgstats/workflows/CI/badge.svg)
-```
 
 `ghOrgReport` is intended to provide some easy ways of getting stats for a GitHub org. `ghOrgReport` does this by wrapping some functions around [PyGithub](https://github.com/PyGithub/PyGithub). This code is mainly intended to help generate reports as part of a GitHub actions pipeline to update stats for a funder. \#TODO add link to lwm report
 
