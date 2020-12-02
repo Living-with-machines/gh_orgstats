@@ -300,7 +300,7 @@ def get_repo_clones_traffic(self, repo: github.Repository.Repository,
     repo : Union[str,github.Repository.Repository]
         repository from `org`
     save_dir : Union[str, pathlib.Path], optional
-        directory where output CSV should be saved, by default 'view_data'
+        directory where output CSV should be saved, by default 'clone_data'
     load : bool, optional
         load data into a Pandas DataFrame, by default False
 
@@ -344,7 +344,7 @@ def get_org_clones_traffic(self, public_only:bool = True, repos: Optional[Iterab
     public_only : bool, optional
         only get stats for public repos, by default True
     save_dir : Union[str,pathlib.Path], optional
-        directory where csvs of stats should be saved, by default 'view_data'
+        directory where csvs of stats should be saved, by default 'clone_data'
     repos : Optional[Iterable[github.Repository.Repository]], optional
         to access stats for a specific set of repos, by default None
     load : bool, optional
