@@ -336,7 +336,7 @@ def get_repo_clones_traffic(self, repo: github.Repository.Repository,
 # Cell
 @patch_to(OrgStats)
 def get_org_clones_traffic(self, public_only:bool = True, repos: Optional[Iterable[github.Repository.Repository]] = None,
-                           save_dir:Union[str,pathlib.Path]='clones_data', load=False) -> Union[None,pd.DataFrame]:
+                           save_dir:Union[str,pathlib.Path]='clone_data', load=False) -> Union[None,pd.DataFrame]:
     """get clone traffic for multiple repos from `Org`
 
     Parameters
