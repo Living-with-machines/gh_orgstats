@@ -8,27 +8,27 @@
 
 To use `PyGithub` we need to authenticate with GitHub this is done via a token. This token is used to authenticate access and requires at least scope for public repos. See https://github.com/settings/tokens to register a token. 
 
-```python
+```
 from dotenv import load_dotenv
 import os
 ```
 
 In this case we use `dotenv` to load the token from a `.env` files. 
 
-```python
+```
 load_dotenv()
 GH_TOKEN = os.getenv("GH_TOKEN")
 ```
 
 Currently all functionality is contained within the `stats` module. 
 
-```python
+```
 from gh_orgstats.stats import *
 ```
 
 The `OrgStats` class is used to get stats for a GitHub organization. To create an instance of this class we need to pass a GitHub token to authenticate and the name of the Organization you want stats for. 
 
-```python
+```
 test_org = OrgStats(GH_TOKEN, "ghorgstatstestorg")
 test_org
 ```
@@ -43,7 +43,7 @@ test_org
 ### Organization repositories 
 As a start we can grab the repositories for an organization via the `repos` attribute of our OrgStats instance
 
-```python
+```
 test_org.repos
 ```
 
@@ -60,7 +60,7 @@ We can also get a sense of what is in the repository by looking at the file exte
 
 ### Repository file types
 
-```python
+```
 test_org.get_org_file_ext_frequency()
 ```
 
@@ -77,7 +77,7 @@ test_org.get_org_file_ext_frequency()
 
 We can also filter this by publication status
 
-```python
+```
 test_org.get_org_file_ext_frequency(pub_status='public')
 ```
 
@@ -91,7 +91,7 @@ test_org.get_org_file_ext_frequency(pub_status='public')
 ### Snapshot stats
 Snapshot stats are captured based on the current view and aren't updated. These include forks and clones
 
-```python
+```
 test_org.snapshot_stats.to_dict()
 ```
 
@@ -105,7 +105,7 @@ test_org.snapshot_stats.to_dict()
 ### Traffic stats
 We can also get a longer view by using traffic stats for views and clones
 
-```python
+```
 test_org.get_org_views_traffic(save_dir='readme_dir')
 ```
 
@@ -114,7 +114,7 @@ test_org.get_org_views_traffic(save_dir='readme_dir')
 
 If you want to load a DataFrame of traffic you can pass `load=True`
 
-```python
+```
 test_org.get_org_views_traffic(save_dir='readme_dir', load=True).to_dict()
 ```
 
