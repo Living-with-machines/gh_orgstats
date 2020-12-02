@@ -292,7 +292,7 @@ repos:Optional[Iterable[github.Repository.Repository]]=None, load=False) -> Unio
 # Cell
 @patch_to(OrgStats)
 def get_repo_clones_traffic(self, repo: github.Repository.Repository,
-                            save_dir:Union[str, pathlib.Path]='clones_data', load=False):
+                            save_dir:Union[str, pathlib.Path]='clone_data', load=False):
     """gets clones traffic for `repo` and saves as csv in `save_dir`
 
     Parameters
@@ -321,7 +321,7 @@ def get_repo_clones_traffic(self, repo: github.Repository.Repository,
     }
 
     try:
-        old_clones_data = pd.read_csv(f'clones_data/{repo.name}_clones_traffic.csv', index_col="_date", parse_dates=["_date"]).to_dict(orient="index")
+        old_clones_data = pd.read_csv(f'{save_dir}/{repo.name}_clones_traffic.csv', index_col="_date", parse_dates=["_date"]).to_dict(orient="index")
         updated_clones_dict = {**old_clones_data, **clones_dict}
         clones_frame = pd.DataFrame.from_dict(data=updated_clones_dict, orient="index", columns=["total_clones", "unique_clones"])
     except:
