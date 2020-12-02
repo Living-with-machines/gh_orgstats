@@ -4,7 +4,8 @@
 
 ![CI](https://github.com/Living-with-machines/gh_orgstats/workflows/CI/badge.svg)
 
-`gh_orgstats` is intended to provide some easy ways of getting stats for a GitHub org. `gh_orgstats` does this by wrapping some functions around [PyGithub](https://github.com/PyGithub/PyGithub). This code is mainly intended to help generate reports as part of a GitHub actions pipeline to update stats for a funder. \ #TODO add link to lwm report
+`gh_orgstats` is intended to provide some easy ways of getting stats for a GitHub org. `gh_orgstats` does this by wrapping some functions around [PyGithub](https://github.com/PyGithub/PyGithub). This code is mainly intended to help generate reports as part of a GitHub actions pipeline to update stats for a funder. \ # TODO add link to lwm report
+ \ # TODO add install instructions 
 
 To use `PyGithub` we need to authenticate with GitHub this is done via a token. This token is used to authenticate access and requires at least scope for public repos. See https://github.com/settings/tokens to register a token. 
 
